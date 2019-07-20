@@ -10,9 +10,19 @@ import app from './App.vue'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
+//配置全局的根域名
+Vue.http.options.root = "http://www.liulongbin.top:3005/"
+//全局设置post提交表单数据的 组织格式
+Vue.http.options.emulateJSON = true
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+import moment from 'moment'
+// 定义全局的过滤器
+Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+  return moment(dataStr).format(pattern)
+})
 
 //导入 mint-ui 样式表 和组件
 import MintUi from 'mint-ui'

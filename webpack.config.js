@@ -33,7 +33,7 @@ module.exports = {
       rules: [ // 所有第三方模块的 匹配规则
         { test: /\.css$/, use: [ MiniCssExtractPlugin.loader, 'css-loader'] },//  配置处理 .css 文件的第三方loader 规则
         { test: /\.less$/,use:['style-loader', 'css-loader','less-loader']},//配置处理 .less文件的第三方 loader 规则
-        { test: /\.scss$/,use:['style-loader', 'css-loader','scss-loader']},//配置处理 .scss文件的第三方 loader 规则
+        { test: /\.sass$/,use:['style-loader', 'css-loader','sass-loader']},//配置处理 .scss文件的第三方 loader 规则
         { test: /\.(ttf|eot|svg|woff|woff2)$/,use:'url-loader'},//配置处理 字体图标 的第三方 loader 规则
         { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' }, // 处理 图片路径的 loader
         { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }, // 配置 Babel 来转换高级的ES语法

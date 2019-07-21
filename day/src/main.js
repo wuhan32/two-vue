@@ -31,6 +31,9 @@ Vue.use(MintUi)
 
 // 1.3 导入自己的 router.js 路由模块
 import router from './router.js'
+//导入缩略图
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 // 1.4 挂载 路由对象到 vm 实例上
 let vm = new Vue({

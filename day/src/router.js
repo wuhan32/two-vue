@@ -11,7 +11,8 @@ import search from './components/tabbar/search.vue'
 import newslist from './components/news/newslist.vue'
 import newsInfo from './components/news/newsInfo.vue'
 import photosList from './components/photos/photosList.vue'
-
+import photosInfo from './components/photos/photosInfo.vue'
+import goodslist  from './components/Goods/GoodsList.vue'
 let router = new VueRouter({
   	routes: [
           {path:'/',redirect:'/home'},
@@ -21,7 +22,9 @@ let router = new VueRouter({
           { path:'/search',component:search},
           { path:'/home/newslist',component:newslist},
           { path:'/home/newsInfo/:id',component:newsInfo},
-          {path:'/home/photosList',component:photosList}
+          {path:'/home/photosList',component:photosList},
+          {path:'/home/photosInfo/:id',component:photosInfo},
+          {path:'/home/goodslist',component:goodslist}
       ],
   	// 覆盖默认的路由高亮的类，默认的类叫做 router-link-active
   	linkActiveClass: 'mui-active'

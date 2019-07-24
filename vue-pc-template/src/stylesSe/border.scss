@@ -1,0 +1,86 @@
+@import './variables.scss';
+
+.b {
+  border: 1px solid $c-dd;
+
+  &-b {
+    border-bottom: 1px solid $c-dd;
+  }
+
+  &-r {
+    border-right: 1px solid $c-dd;
+  }
+
+  &-l {
+    border-left: 1px solid $c-dd;
+  }
+
+  &-t {
+    border-top: 1px solid $c-dd;
+  }
+
+  &-ts+&-ts {
+    border-top: 1px solid $c-dd;
+  }
+
+  &-blue {
+    border: 1px solid $blue;
+    color: $blue;
+  }
+
+  &-green {
+    border: 1px solid $green;
+    color: $green;
+  }
+
+  &-yellow {
+    border: 1px solid $yellow;
+    color: $yellow;
+  }
+
+  &-orange {
+    border: 1px solid $orange;
+    color: $orange;
+  }
+
+  &-red {
+    border: 1px solid $red;
+    color: $red;
+  }
+
+  &-no {
+    border: none !important;
+    color: $c-33;
+  }
+
+  &-r5 {
+    border-radius: 5px;
+  }
+
+  &-r10 {
+    border-radius: 10px;
+  }
+
+  &-r20 {
+    border-radius: 20px;
+  }
+
+  &-r40 {
+    border-radius: 40px;
+  }
+}
+
+.bs {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2),
+    -2px -2px 12px rgba(0, 0, 0, 0.2),
+    2px -2px 12px rgba(0, 0, 0, 0.2),
+    -2px 2px 12px rgba(0, 0, 0, 0.2);
+
+  &-b {
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &-t {
+    box-shadow: -2px -2px 12px rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,0 +1,81 @@
+.toolBar {
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+
+  .name {
+    display: inline-block;
+    padding-right: 5px;
+
+    &:after {
+      content: ':';
+    }
+  }
+
+  .el-input,
+  .el-select,
+  .el-cascader,
+  .el-date-editor {
+    width: 250px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .el-range-editor {
+    width: 350px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .el-button,
+  .el-checkbox {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  &.small {
+    .el-input,
+    .el-select,
+    .el-cascader,
+    .el-date-editor {
+      width: 150px;
+    }
+  }
+
+  &.medium {
+    .el-input,
+    .el-select,
+    .el-cascader,
+    .el-date-editor {
+      width: 200px;
+    }
+  }
+}
+
+.se-table {
+  &.tac {
+    tr,
+    th,
+    td {
+      text-align: center;
+    }
+  }
+
+  .el-table__header-wrapper th {
+    background-color: #f5f5f5;
+  }
+}
+
+.se-form {
+  .el-textarea,
+  .el-select,
+  .el-cascader,
+  .el-date-editor,
+  .el-range-editor {
+    width: 100%;
+    display: block;
+  }
+}
+
+.se-dialog {
+}

@@ -1,0 +1,122 @@
+.clearfix {
+  &:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+  }
+}
+
+.over {
+  overflow: hidden;
+}
+
+.breakAll {
+  word-break: break-all;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.scroll {
+  &-x {
+    overflow-x: auto;
+  }
+
+  &-y {
+    overflow-y: auto;
+  }
+
+  &-ys {
+    &::-webkit-scrollbar {
+      // 滑块
+      width: 10px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      // 滑块
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      // 轨道
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.f {
+  &l {
+    float: left;
+  }
+
+  &r {
+    float: right;
+  }
+}
+
+.t {
+  &al {
+    text-align: left;
+  }
+
+  &ac {
+    text-align: center;
+  }
+
+  &ar {
+    text-align: right;
+  }
+
+  &oe {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.d {
+  &b {
+    display: block !important;
+    width: 100%;
+  }
+
+  &ib {
+    display: inline-block !important;
+  }
+
+  &n {
+    display: none !important;
+  }
+}
+
+.v {
+  &at {
+    vertical-align: top;
+  }
+
+  &am {
+    vertical-align: middle;
+  }
+
+  &ab {
+    vertical-align: baseline;
+  }
+}
+
+.z {
+  &-small {
+    z-index: 99;
+  }
+
+  &-big {
+    z-index: 9999;
+  }
+}

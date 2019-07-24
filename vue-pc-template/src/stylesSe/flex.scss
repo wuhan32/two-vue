@@ -1,0 +1,164 @@
+.pos {
+  position: relative;
+
+  &-lt {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &-lc {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &-lb {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  &-ct {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  &-cc {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-cb {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &-rt {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &-rc {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &-rb {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &-ft {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
+  &-fb {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.flex {
+  display: flex;
+
+  >div,
+  >span,
+  >a {
+    flex: 1;
+  }
+
+  &-1 {
+    flex: 1;
+  }
+
+  &-sb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-sa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-fs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-fe {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-v {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-vsb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-vsa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-vc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.img {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

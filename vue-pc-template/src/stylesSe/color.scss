@@ -1,0 +1,100 @@
+@import './variables.scss';
+
+.c {
+  &-white {
+    color: $white;
+  }
+
+  &-blue {
+    color: $blue;
+  }
+
+  &-green {
+    color: $green;
+  }
+
+  &-yellow {
+    color: $yellow;
+  }
+
+  &-orange {
+    color: $orange;
+  }
+
+  &-red {
+    color: $red;
+  }
+
+  &-33 {
+    color: $c-33;
+  }
+
+  &-99 {
+    color: $c-99;
+  }
+
+  &-active {
+    color: $blue !important;
+    border-bottom: 1px solid $blue;
+  }
+}
+
+.bgc {
+  &-white {
+    background-color: $white;
+    color: $c-33;
+  }
+
+  &-blue {
+    background-color: $blue;
+    color: $white;
+  }
+
+  &-green {
+    background-color: $green;
+    color: $white;
+  }
+
+  &-yellow {
+    background-color: $yellow;
+    color: $white;
+  }
+
+  &-orange {
+    background-color: $orange;
+    color: $white;
+  }
+
+  &-red {
+    background-color: $red;
+    color: $white;
+  }
+
+  &-c-33 {
+    background-color: $c-33;
+    color: $white;
+  }
+
+  &-99 {
+    background-color: $c-99;
+    color: $white;
+  }
+
+  &-f5 {
+    background-color: $c-f5;
+    color: $c-33;
+  }
+
+  &-rgba-black {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &-rgba-white {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &-no {
+    background: none !important;
+    color: $c-33 !important;
+  }
+}

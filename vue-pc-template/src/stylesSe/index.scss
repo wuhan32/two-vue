@@ -1,0 +1,46 @@
+@import './border.scss';
+@import './color.scss';
+@import './common.scss';
+@import './components.scss';
+@import './element.scss';
+@import './flex.scss';
+@import './font.scss';
+@import './input.scss';
+@import './pm.scss';
+@import './shape.scss';
+@import './sidebar.scss';
+@import './space.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  // background-color: #F5F5F5;
+  color: #333333;
+  font-size: 14px;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+input,
+button,
+img {
+  outline: none;
+  border: none;
+}
+
+#app {
+  height: 100%;
+}

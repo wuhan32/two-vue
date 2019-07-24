@@ -1,0 +1,65 @@
+// 全屏页面
+.view-container {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  font-size: 0.14rem;
+  font-family: "Number";
+  padding: 0.2rem;
+  overflow: hidden;
+
+  >.leftBar,
+  >.centerBar,
+  >.rightBar {
+    width: 30%;
+    height: 100%;
+    float: left;
+  }
+
+  >.centerBar {
+    width: 40%;
+  }
+
+  >.topBar {
+    width: 100%;
+    height: 60%;
+  }
+
+  >.botBar {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+// 列表页面
+.app-container {
+  width: 100%;
+  min-height: calc(100vh - 94px);
+  background-color: #ffffff;
+  position: relative;
+  padding: 20px;
+}
+
+.circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.loop {
+  animation: loopAni 5s linear infinite;
+}
+
+@keyframes loopAni {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.preserve3d {
+  transform-style: preserve-3d;
+  // perspective: 1000px;
+}

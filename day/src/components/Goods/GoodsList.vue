@@ -1,62 +1,56 @@
 <template>
   <div class="goods-list">
-    <div class="goods-item">
-      <img
-        src="../../images/menu1(1).png"
-        alt
-      />
-      <h1 class="title">小米（Mi）小米Note 16G双网通版</h1>
+    <div class="goods-item" v-for="item in goodslist" :key="item.id" @click="goDetail(item.id)">
+      <img :src="item.img_url" >
+      <h1 class="title">{{item.title}}</h1>
       <div class="info">
         <p class="price">
-          <span class="now">￥899</span>
-          <span class="old">￥999</span>
+          <span class="now">￥ {{ item.sell_price }}</span>
+          <span class="old">￥ {{ item.market_price }}</span>
         </p>
         <p class="sell">
           <span>热卖中</span>
-          <span>剩60件</span>
+          <span>剩{{ item.stock_quantity }}件</span>
         </p>
       </div>
     </div>
-
-    <div class="goods-item">
-      <img
-        src="../../images/menu1(1).png"
-        alt
-      />
-      <h1 class="title">尼康(Nikon)D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）</h1>
-      <div class="info">
-        <p class="price">
-          <span class="now">￥899</span>
-          <span class="old">￥999</span>
-        </p>
-        <p class="sell">
-          <span>热卖中</span>
-          <span>剩60件</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="goods-item">
-      <img
-        src="../../images/menu1(1).png"
-        alt
-      />
-      <h1 class="title">小米（Mi）小米Note 16G双网通版</h1>
-      <div class="info">
-        <p class="price">
-          <span class="now">￥899</span>
-          <span class="old">￥999</span>
-        </p>
-        <p class="sell">
-          <span>热卖中</span>
-          <span>剩60件</span>
-        </p>
-      </div>
-    </div>
+    <mt-button type="danger" size="large" @click="getMore" class="duoButton">加载更多</mt-button>
   </div>
 </template>
 
 <script>
+import { log } from 'util';
+export default {
+  data() {
+    //往自己组件挂载一些私有数据
+    return {
+      pageindex: 1,
+      goodslist: []
+    };
+  },
+  created() {
+    this.getGoodsList()
+  },
+  methods: {
+    getGoodsList() {
+      this.$http
+        .get("api/getgoods?pageindex=" + this.pageindex)
+        .then(result => {
+          if (result.body.status === 0) {
+            this.goodslist = result.body.message;
+            
+          }
+        });
+    },
+    getMore() {
+      this.pageindex++;
+      this.getGoodsList();
+    },
+    goDetail(id) {
+      this.$router.push({name:'goodsInfo',params:{id}})
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -108,4 +102,8 @@
   justify-content: space-between;
   font-size: 13px;
 }
+.duoButton {
+  margin-bottom: 50px;
+}
+
 </style>

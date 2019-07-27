@@ -19,7 +19,7 @@
               </p>
               <p class="buyNum">
                 <span>购买数量：</span>
-                <numberbox></numberbox>
+                <numberbox @getcount="goodsinfo" :max="goodsInfo.stock_quantity"></numberbox>
               </p>
               <p>
                 <mt-button type="primary" size="small">立即购买</mt-button>
@@ -69,7 +69,8 @@ export default {
       id: this.$route.params.id,
       lunbotu: [],
       goodsInfo: {},
-      flag: false
+      flag: false,
+      selectedCount : 1
     };
   },
 
@@ -77,6 +78,7 @@ export default {
     this.getLunbo();
     this.getGoodsInfo();
   },
+  
   methods: {
     getLunbo() {
       this.$http.get("api/getthumimages/" + this.id).then(res => {
@@ -86,7 +88,7 @@ export default {
           });
           this.lunbotu = res.body.message;
 
-          console.log(res.body);
+          // console.log(res.body);
         }
       });
     },
@@ -94,9 +96,14 @@ export default {
       this.$http.get("api/goods/getinfo/" + this.id).then(res => {
         if (res.data.status === 0) {
           this.goodsInfo = res.data.message[0];
-          console.log(this.goodsInfo);
+          // console.log(this.goodsInfo);
         }
       });
+    },
+    goodsinfo(count){
+      this.selectedCount = count;
+      // console.log(count);
+      
     },
     goDesc(id) {
       this.$router.push({ name: "goodsdesc", params: { id } });
@@ -106,6 +113,14 @@ export default {
     },
     xiaoqiu() {
       this.flag = !this.flag;
+
+       let goodsInfo = {
+        id:this.id,
+        count:this.selectedCount,
+        price:this.goodsInfo.sell_price,
+        selected:true
+      }
+      this.$store.commit("addToCar",goodsInfo)
     },
     beforeEnter(el) {
       el.style.transform = "translate(0, 0)";
@@ -117,13 +132,14 @@ export default {
       const ballx = ballNum.left - ballQ.left;
       const bally = ballNum.top - ballQ.top;
 
-      el.style.transform = `translate( ${ballx}px,${ bally }px)`;
+      el.style.transform = `translate( ${ballx}px,${bally}px)`;
       el.style.transition = "all 1s ease";
       done();
     },
     afterEnter(el) {
       this.flag = !this.flag;
-    }
+    },
+
   },
   components: {
     swiper,

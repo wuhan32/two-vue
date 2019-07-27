@@ -34,10 +34,49 @@ import router from './router.js'
 //导入缩略图
 import VuePreview from 'vue-preview'
 Vue.use(VuePreview)
+//导入Vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+
+
+const store = new Vuex.Store({
+  state:{
+    car:JSON.parse(localStorage.getItem('car') || '[]')
+  },
+  mutations:{
+    addToCar(state,goodsInfo){
+      let flag = false
+      state.car.some(item => {
+        if(item.id == goodsInfo.id) {
+          item.count += parseInt(goodsInfo.count)
+          flag = true
+          return true
+        }
+      })
+      if(!flag) {
+        state.car.push(goodsInfo)
+      }
+      localStorage.setItem('car',JSON.stringify(state.car))
+    }
+  },
+  getters:{
+    geyAllCount(state) {
+      let c = 0
+      state.car.forEach(item => {
+        c+=item.count
+      })
+      return c
+    }
+  }
+})
+
 
 // 1.4 挂载 路由对象到 vm 实例上
 let vm = new Vue({
   el: "#app",
   render: c => c(app),
-  router
+  router,
+  store,
 })
+

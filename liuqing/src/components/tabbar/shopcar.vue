@@ -3,17 +3,19 @@
     <div class="shopcar-container">
       <div class="goods-list">
         <!-- 商品列表项区域 -->
-        <div class="mui-card" v-for="item in goodslist" :key="item.id">
+        <div class="mui-card" v-for="(item,index) in goodslist" :key="item.id">
           <div class="mui-card-content">
             <div class="mui-card-content-inner">
-              <mt-switch></mt-switch>
+              <mt-switch v-model="$store.getters.getGoodsSelected[item.id]"
+                @change="selectedChanged(item.id,$store.getters.getGoodsSelected[item.id])"
+              ></mt-switch>
               <img :src="item.thumb_path" />
               <div class="info">
                 <h1>{{ item.title }}</h1>
-                <p>
+                <p class="sanchu">
                   <span class="price">￥{{ item.sell_price }}</span>
-                  <numbox></numbox>
-                  <a href="#">删除</a>
+                  <numbox :initcount="$store.getters.getGoodsCount[item.id]" :goodsid="item.id"></numbox>
+                  <a href="#" @click.prevent = "remove(item.id,index)">删除</a>
                 </p>
               </div>
             </div>
@@ -28,8 +30,10 @@
               <p>总计（不含运费）</p>
               <p>
                 已勾选商品
-                <span class="red"></span> 件， 总价
-                <span class="red"></span>
+                <span class="red"> {{ $store.getters.getGoodsCountAndAmount.count }} </span> 件
+                <br> 
+                总价
+                <span class="red"> ￥{{$store.getters.getGoodsCountAndAmount.amount  }} </span>
               </p>
             </div>
             <mt-button type="danger">去结算</mt-button>
@@ -41,7 +45,7 @@
 </template>
 
 <script>
-import numbox from "../subcomponent/goodsInfo_num.vue";
+import numbox from "../subcomponent/shopcar_num.vue";
 export default {
   data() {
     return {
@@ -49,7 +53,7 @@ export default {
     };
   },
   created() {
-    this.getGoodsList();
+    this.getGoodsList()
   },
   methods: {
     getGoodsList() {
@@ -68,6 +72,16 @@ export default {
             this.goodslist = result.body.message;
           }
         });
+    },
+    remove(id,index) {
+      this.goodslist.splice(index,1)
+      this.$store.commit("removeFromCar",id)
+    },
+    selectedChanged(id,val) {
+      this.$store.commit("updateGoodsSelected",{
+        id,
+        selected:val
+      })
     }
   },
   components: {
@@ -133,4 +147,16 @@ h1 {
 .mui-card {
   margin: 8px;
 }
+.sanchu {
+  box-sizing: border-box;
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content:space-between;
+}
+.sanchu a,
+.sanchu span
+ {
+  margin-top:5px;
+}
+
 </style>
